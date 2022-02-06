@@ -2,6 +2,55 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## App Structure
+
+```bash
+├── README.md - This file.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── public
+│ └── index.html # DO NOT MODIFY
+└── src .
+    ├── Components # container for all the developped files.
+        ├── Navbar # container folder for files used in Navbar.
+            ├── Navbar.jsx #
+            └── Navbar.style.scss # SASS Styles.
+        ├── ShipmentDetails # Container for Shipment details table.
+            ├── ShipmentDetails.jsx #
+            └── ShipmentDetails.style.scss # SCSS Styles.
+        ├── ShipmentHeader # Container for Shipment Header table.
+            ├── ShipmentHeader.jsx #
+            └── ShipmentHeader.style.scss # SCSS Styles.
+        ├── ShipmentProgress # Container for Shipment Progress bar.
+            ├── ShipmentProgress.jsx #
+            └── ShipmentProgress.style.scss # SCSS Styles.
+    ├── util # container for the helpful utilities to keep components simple.
+        └── useFetch.jsx # contains Async custom hook to Fetch data.
+    ├── layout # Container for the Layout components.
+        ├── Header # Container for Navbar/Header.
+        ├──
+        └──
+    ├── mainStyles # Container for the main styles.
+        ├── abstract
+            ├── _mixins.scss
+            └── _variables.scss
+        ├── base
+            └── _typography.scss
+        ├── layout
+            └── _grid.scss
+        └── main.scss # Container for all the main styles files.
+     ├── media # Container for the main styles.
+        └── icons
+            ├── arrow-down.svg
+            ├── bosta_logo_ar_red.svg
+            └── bosta_logo_ar_white.svg
+    └── pages
+        └── Trackshipment.jsx
+    ├── App.js # This is the root of your app. Contains static HTML right now.
+    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
+    ├── index.css # Global styles. You probably won't need to change anything here.
+    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

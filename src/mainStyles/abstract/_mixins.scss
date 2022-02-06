@@ -1,0 +1,80 @@
+// Media Query Manager
+/*
+$breakpoint arguement choices in pixels:
+- bp400
+- bp500
+- bp600
+- bp750
+- bp900
+- bp1000
+- bp1100
+- bp1200
+- bp1800
+ORDER: Base + typography > general layout + grid > page layout > components
+1em = 16px
+*/
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == bp400 {
+    @media only screen and (max-width: 25em) {
+      //400px
+      @content;
+    }
+  }
+  @if $breakpoint == bp500 {
+    @media only screen and (max-width: 31.25em) {
+      //500px
+      @content;
+    }
+  }
+  @if $breakpoint == bp600 {
+    @media only screen and (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp750 {
+    @media only screen and (max-width: 46.875em) {
+      //750px
+      @content;
+    }
+  }
+
+  @if $breakpoint == bp800 {
+    @media only screen and (max-width: 50em) {
+      //800px
+      @content;
+    }
+  }
+  @if $breakpoint == bp900 {
+    @media only screen and (max-width: 56.25em) {
+      //900px
+      @content;
+    }
+  }
+  @if $breakpoint == bp1000 {
+    @media only screen and (max-width: 62.5em) {
+      //1000px
+      @content;
+    }
+  }
+  @if $breakpoint == bp1100 {
+    @media only screen and (max-width: 68.75em) {
+      //1100 px
+      @content;
+    }
+  }
+  @if $breakpoint == bp1200 {
+    @media only screen and (max-width: 75em) {
+      //1200px
+      @content;
+    }
+  }
+  @if $breakpoint == bp1800 {
+    @media only screen and (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}

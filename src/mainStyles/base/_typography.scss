@@ -1,0 +1,24 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+  //defines the rem! 1 rem = 10 px
+  font-size: 62.5%;
+}
+body {
+  font-family: Cairo, Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  /* Hard coded for Arabic view only */
+  direction: rtl;
+  margin: 0 3rem;
+}
+
+li {
+  list-style: none;
+}
