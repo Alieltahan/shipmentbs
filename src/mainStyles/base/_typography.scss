@@ -22,3 +22,15 @@ body {
 li {
   list-style: none;
 }
+
+.delivered {
+  color: var(--color-delivered);
+}
+
+.pending {
+  color: var(--color-pending);
+}
+
+.cancelled {
+  color: var(--color-cancelled);
+}

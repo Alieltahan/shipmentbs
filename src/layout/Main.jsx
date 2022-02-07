@@ -9,8 +9,8 @@ const ShipmentBody = () => {
 
   const [inputTrackNum, setInputTrackNum] = useState(null);
 
-  const handleTrackNum = (num) => {
-    setInputTrackNum(num);
+  const handleTrackNum = (trackNo) => {
+    setInputTrackNum(trackNo);
     if (inputTrackNum) {
       handleRequest(inputTrackNum);
     }
@@ -23,8 +23,13 @@ const ShipmentBody = () => {
   return (
     <>
       <Navbar handleTrackNum={handleTrackNum} />
-      <ShipmentHeader />
-      <ShipmentProgressBar />
+      {data && (
+        <>
+          {' '}
+          <ShipmentHeader data={data} />
+          <ShipmentProgressBar TransitEvents={data.TransitEvents} />
+        </>
+      )}
     </>
   );
 };

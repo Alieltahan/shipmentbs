@@ -3,17 +3,23 @@
   margin: 2rem;
   margin-bottom: 30px;
 }
-#progress-bar {
+.progress-bar {
   position: absolute;
-  background: var(--color-primary);
+  background: var(--color-pending);
   height: 5px;
   width: 0%;
-  top: 50%;
+  top: 42%;
   //   for Arabic rtl
   right: 0;
   //   for EN - may add class
   // left: 0;
   transition: all 0.3s;
+  &.delivered {
+    background-color: var(--color-delivered);
+  }
+  &.cancelled {
+    background-color: var(--color-cancelled);
+  }
 }
 
 #progress-num {
@@ -22,7 +28,7 @@
   display: flex;
   justify-content: space-between;
 }
-progress-num::before {
+#progress-num::before {
   content: ' ';
   background-color: var(--color-white);
   position: absolute;
@@ -30,21 +36,53 @@ progress-num::before {
   left: 0;
   height: 5px;
   width: 100%;
-
   z-index: -1;
 }
 #progress-num .step {
-  border: 3px solid var(--color-white);
+  border: 1px solid var(--color-black);
   border-radius: 100%;
-  width: 25px;
-  height: 25px;
+  width: 2.5rem;
+  height: 2.5rem;
   line-height: 25px;
   text-align: center;
-  background-color: var(--color-primary);
   font-family: sans-serif;
   font-size: 14px;
   position: relative;
+  font-size: 1.5rem;
+  opacity: 0.5;
+  transform: scale(1.5);
+
   z-index: 1;
+  &.pending {
+    transform: scale(0.8);
+    color: var(--color-white);
+    opacity: 1;
+    background-color: var(--color-pending);
+
+    border: 1px solid var(--color-pending);
+    &.active {
+      transform: scale(1.5);
+      font-size: 2rem;
+    }
+  }
+  &.delivered {
+    transform: scale(0.8);
+    color: var(--color-white);
+    opacity: 1;
+    background-color: var(--color-delivered);
+    border: 1px solid var(--color-delivered);
+  }
+  &.cancelled {
+    opacity: 1;
+    background-color: var(--color-cancelled);
+    border: 1px solid var(--color-cancelled);
+  }
+  &.nonDelivered {
+    opacity: 0.5;
+    transform: scale(1.5);
+    background-color: transparent;
+    border: 1px solid var(--color-black);
+  }
 }
 .container {
   display: flex;
@@ -56,20 +94,15 @@ progress-num::before {
   background-color: #fff;
   z-index: 1;
   border: 4px solid #fff;
+  & img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 115%;
+    width: 83%;
+    transform: scaleX(-1);
+    &#package {
+      transform: scaleX(1);
+    }
+  }
 }
-
-#progress-num .step.active {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: #fff;
-}
-/* .complete::before{
-    background-color: red;
-    content: '✓';
-    top:15%;
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    z-index: 3;
-  
-  } */
