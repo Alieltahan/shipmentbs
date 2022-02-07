@@ -3,7 +3,7 @@ import arrowDown from '../../media/icons/arrow-down.svg';
 import './Navbar.style.scss';
 import { useRef, useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({ handleTrackNum }) => {
   // To Handle Show/Hide TrackShipment
   const [showInput, setShowInput] = useState(true);
 
@@ -12,6 +12,21 @@ const Navbar = () => {
   // Collapsing Track Shipment
   const showInputClass = () => {
     return showInput ? 'nav__list__track-input' : 'nav__list__track-input hide';
+  };
+
+  const handleArrowRotate = () => {
+    return showInput ? 'nav__arrow nav__arrow-up' : 'nav__arrow';
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Guard Clause for white space input
+    if (inputRef.current.value.trim() === '') return;
+    handleTrackNum(inputRef.current.value);
+  };
+
+  const handleClick = () => {
+    setShowInput(!showInput);
   };
 
   return (
@@ -29,25 +44,26 @@ const Navbar = () => {
       <div>
         <ul className="nav__list">
           <div>
-            <li
-              onClick={() => setShowInput(!showInput)}
-              className="nav__list__track"
-            >
+            <li onClick={() => handleClick()} className="nav__list__track">
               تتبع شحنتك
+              <img
+                className={handleArrowRotate()}
+                src={arrowDown}
+                alt="arrow"
+              />
             </li>
             <div className={showInputClass()}>
-              <input
-                ref={inputRef}
-                type="number"
-                name="trackNo-input"
-                placeholder="رقم الشحنة"
-              />
-              <button onClick={() => console.log(inputRef.current.value)}>
-                تتبع الشحنة
-              </button>
+              <form onSubmit={handleSubmit}>
+                <input
+                  ref={inputRef}
+                  type="number"
+                  name="trackNo-input"
+                  placeholder="رقم الشحنة"
+                />
+                <button type="submit">تتبع الشحنة</button>
+              </form>
             </div>
           </div>
-          <img className="nav__arrow" src={arrowDown} alt="arrow" />
 
           <li className="nav__separate">|</li>
           <li>تسجيل الدخول</li>

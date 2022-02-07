@@ -1,6 +1,4 @@
-import Header from './layout/Header';
-import Trackshipment from './pages/Trackshipment';
-import ShipmentBody from './layout/ShipmentBody';
+import Main from './layout/Main';
 import { store } from './components/store/confStore';
 import { Provider } from 'react-redux';
 import './mainStyles/main.scss';
@@ -8,9 +6,7 @@ import './mainStyles/main.scss';
 function App() {
   return (
     <Provider store={store}>
-      <Header />
-      <ShipmentBody />
-      <Trackshipment />
+      <Main />
     </Provider>
   );
 }
