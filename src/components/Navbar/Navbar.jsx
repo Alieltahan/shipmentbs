@@ -23,6 +23,9 @@ const Navbar = ({ handleTrackNum }) => {
     // Guard Clause for white space input
     if (inputRef.current.value.trim() === '') return;
     handleTrackNum(inputRef.current.value);
+    // #TODO Enable After Development
+    // setShowInput(!showInput);
+    // inputRef.current.value = '';
   };
 
   const handleClick = () => {
