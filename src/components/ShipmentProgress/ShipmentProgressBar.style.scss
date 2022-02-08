@@ -1,7 +1,17 @@
-#progress {
+.container-bar {
+  border: 1px solid var(--color-grey-dark-3);
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+.progress {
   position: relative;
   margin: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
+  &.text {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-3);
+  }
 }
 .progress-bar {
   position: absolute;
@@ -22,13 +32,13 @@
   }
 }
 
-#progress-num {
+.progress-num {
   padding: 0;
   list-style: none;
   display: flex;
   justify-content: space-between;
 }
-#progress-num::before {
+.progress-num::before {
   content: ' ';
   background-color: var(--color-white);
   position: absolute;
@@ -38,7 +48,7 @@
   width: 100%;
   z-index: -1;
 }
-#progress-num .step {
+.progress-num .step {
   border: 1px solid var(--color-black);
   border-radius: 100%;
   width: 2.5rem;

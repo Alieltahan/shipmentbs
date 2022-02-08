@@ -1,21 +1,22 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const useFetch = () => {
+export default function useFetch() {
   const [data, setData] = useState(null);
+  const [trackNum, setTrackNum] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const APIUrl = `https://tracking.bosta.co/shipments/track/`;
 
   useEffect(() => {
-    handleRequest();
-  }, []);
+    handleRequest(trackNum);
+  }, [trackNum]);
 
-  const handleRequest = (trackNo) => {
+  const handleRequest = (trackNum) => {
     // Guard Clause
-    if (!trackNo) return;
-    axios(`${APIUrl}${trackNo}`)
+    if (!trackNum) return;
+    axios(`${APIUrl}${trackNum}`)
       .then((response) => {
         setData(response.data);
       })
@@ -27,7 +28,5 @@ const useFetch = () => {
         setLoading(false);
       });
   };
-  return { data, loading, error, handleRequest };
-};
-
-export default useFetch;
+  return [data, loading, error, setTrackNum];
+}

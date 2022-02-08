@@ -1,4 +1,5 @@
-import { dateOfLastUpdate } from '../utils/timeFormat';
+import { timeFormat } from '../utils/timeFormat';
+import { TransitState } from '../utils/TransitStateAr';
 import './ShipmentHeader.Style.scss';
 
 /**
@@ -6,16 +7,20 @@ import './ShipmentHeader.Style.scss';
  * @returns
  */
 const ShipmentHeader = ({ data }) => {
-  // console.log();
-
+  // Getting the last timestamp
   const lastUpdate =
     data?.TransitEvents[data.TransitEvents.length - 1]?.timestamp;
+
+  // Getting last Tranist State
   const { state } = data?.CurrentStatus;
+
   const transitStateClasses = () => {
-    if (state === 'DELIVERED') return 'shipment__header-details delivered';
+    if (state === 'DELIVERED' || state === 'DELIVERED_TO_SENDER')
+      return 'shipment__header-details delivered';
     else if (state === 'CANCELLED') return 'shipment__header-details cancelled';
     else return 'shipment__header-details pending';
   };
+
   return (
     <div className="shipment__header grid grid--1x4">
       <div>
@@ -25,7 +30,7 @@ const ShipmentHeader = ({ data }) => {
       <div>
         <div> أخر تحديث</div>
         <div className="shipment__header-details">
-          {dateOfLastUpdate(lastUpdate)}
+          {timeFormat(lastUpdate).completeDateTime}
         </div>
       </div>
       <div>
@@ -35,7 +40,9 @@ const ShipmentHeader = ({ data }) => {
       <div>
         <div>موعد التسليم خلال</div>
         <div className="shipment__header-details">
-          {data.PromisedDate ? dateOfLastUpdate(data.PromisedDate) : '-'}
+          {data.PromisedDate
+            ? timeFormat(data.PromisedDate).completeDateTime
+            : '-'}
         </div>
       </div>
     </div>
@@ -43,13 +50,3 @@ const ShipmentHeader = ({ data }) => {
 };
 
 export default ShipmentHeader;
-
-const TransitState = {
-  TICKET_CREATED: 'تم انشاءالشحنة',
-  PACKAGE_RECEIVED: 'تم استلام الشحنة',
-  IN_TRANSIT: 'جارى النقل',
-  NOT_YET_SHIPPED: 'لم يتم الشحن بعد',
-  OUT_FOR_DELIVERY: 'الشحنة خرجت للستليم',
-  WAITING_FOR_CUSTOMER_ACTION: 'فى إنتظار رد العميل',
-  DELIVERED: 'تم التسليم',
-};

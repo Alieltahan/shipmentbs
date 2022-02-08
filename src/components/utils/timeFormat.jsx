@@ -1,4 +1,4 @@
-export function dateOfLastUpdate(lastUpdate) {
+export function timeFormat(lastUpdate) {
   const date = new Date(lastUpdate);
   // Option 1
   // Returns Format: 'الاثنين، ٢٠ يوليو ٢٠٢٠, ٦:٣٤ م'
@@ -31,7 +31,10 @@ export function dateOfLastUpdate(lastUpdate) {
   Hours = Hours ? Hours : 12; // if hours == '0' then should be '12'
   Hours = ('0' + Hours).slice(-2);
   Minutes = Minutes < 10 ? '0' + Minutes : Minutes;
-  const delDateString = `
+
+  const time = `${Hours}:${Minutes}${ampm}`;
+  const dateOnly = `${Day}/${Month}/${Year}`;
+  const completeDateTime = `
       ${weekDay} ${Day}/${Month}/${Year} at ${Hours}:${Minutes}${ampm}`;
-  return delDateString;
+  return { completeDateTime, dateOnly, time };
 }
