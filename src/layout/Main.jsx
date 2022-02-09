@@ -10,10 +10,6 @@ const ShipmentBody = () => {
   const handleTrackNum = (trackNo) => {
     setTrackNum(trackNo);
   };
-  // #TODO REMOVE
-  if (data) {
-    console.log(data);
-  }
 
   return (
     <>

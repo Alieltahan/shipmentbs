@@ -189,6 +189,8 @@
   position: fixed;
   height: 100vh;
   width: 100vw;
+  top: 0;
+  right: 0;
   background-color: var(--color-black);
   opacity: 0.5;
   z-index: 1;

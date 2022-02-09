@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 const Navbar = ({ handleTrackNum }) => {
   // To Handle Show/Hide TrackShipment
   const [showInput, setShowInput] = useState(true);
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(true);
 
   const inputRef = useRef(null);
@@ -32,10 +32,10 @@ const Navbar = ({ handleTrackNum }) => {
     // Guard Clause for white space input
     if (inputRef.current.value.trim() === '') return;
     setShowModal(false);
+    setShowMenu(false);
     handleTrackNum(inputRef.current.value);
-    // #TODO Enable After Development
-    // setShowInput(!showInput);
-    // inputRef.current.value = '';
+    setShowInput(!showInput);
+    inputRef.current.value = '';
   };
 
   const handleShowTrackInput = () => {
