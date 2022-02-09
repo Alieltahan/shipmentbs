@@ -17,6 +17,12 @@ body {
   /* Hard coded for Arabic view only */
   direction: rtl;
   margin: 0 3rem;
+  @include responsive(bp900) {
+    margin: 0 2rem;
+  }
+  @include responsive(bp600) {
+    margin: 0 0.5rem;
+  }
 }
 
 li {

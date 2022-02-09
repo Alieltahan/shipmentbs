@@ -1,7 +1,13 @@
+@import '../../mainStyles/abstract/mixins';
+
 .container-bar {
   border: 1px solid var(--color-grey-dark-3);
-  padding: 1rem;
+  padding: 2rem;
   padding-bottom: 4rem;
+  @include responsive(bp600) {
+    width: 90vw;
+    padding: 1rem;
+  }
 }
 .progress {
   position: relative;

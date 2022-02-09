@@ -13,14 +13,14 @@ const ShipmentDetails = ({ TransitEvents }) => {
             <tr>
               <th>الفرع</th>
               <th>التاريخ</th>
-              <th>الوقت</th>
+              <th className="hide-time">الوقت</th>
               <th>تفاصيل</th>
             </tr>
             {TransitEvents.map((el, i) => (
               <tr key={i}>
                 <td>أسم الفرع</td>
                 <td>{timeFormat(el.timestamp).dateOnly}</td>
-                <td>{timeFormat(el.timestamp).time}</td>
+                <td className="hide-time">{timeFormat(el.timestamp).time}</td>
                 <td>{TransitState[el.state]}</td>
               </tr>
             ))}

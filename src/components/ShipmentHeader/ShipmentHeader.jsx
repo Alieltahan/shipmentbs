@@ -28,8 +28,8 @@ const ShipmentHeader = ({ data }) => {
         <div className={transitStateClasses()}>{TransitState[state]}</div>
       </div>
       <div>
-        <div> أخر تحديث</div>
-        <div className="shipment__header-details">
+        <div className="hide-time"> أخر تحديث</div>
+        <div className="shipment__header-details hide-time ">
           {timeFormat(lastUpdate).completeDateTime}
         </div>
       </div>

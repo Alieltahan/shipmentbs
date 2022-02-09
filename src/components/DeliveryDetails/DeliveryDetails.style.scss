@@ -1,8 +1,18 @@
+@import '../../mainStyles/abstract/mixins';
+
 .delivery {
   &__details {
     width: 30vw;
     & img {
       width: 50%;
+    }
+    & > div {
+      font-size: 2rem;
+    }
+    & h2 {
+      @include responsive(bp900) {
+        margin-top: 3rem;
+      }
     }
   }
   &__issue {

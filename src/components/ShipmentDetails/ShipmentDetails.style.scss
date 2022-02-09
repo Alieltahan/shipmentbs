@@ -1,14 +1,25 @@
+@import '../../mainStyles/abstract/mixins';
+
 .shipment__details {
   margin-top: 3rem;
   column-gap: 2rem;
   margin-left: 2rem;
+
   & h2 {
     padding-bottom: 1rem;
+    @include responsive(bp900) {
+    }
   }
   & table {
     font-size: 1.4rem;
     width: 60vw;
     text-align: center;
+    @include responsive(bp900) {
+      width: 80vw;
+    }
+    @include responsive(bp600) {
+      width: 100vw;
+    }
     & th {
       background-color: var(--color-grey-light);
       padding: 1rem;
@@ -16,5 +27,11 @@
     & tr:nth-child(odd) {
       background-color: var(--color-grey-light-1);
     }
+  }
+}
+.hide-time {
+  @include responsive(bp600) {
+    display: none;
+    visibility: none;
   }
 }
